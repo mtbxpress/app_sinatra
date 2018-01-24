@@ -1,0 +1,13 @@
+	<h1>Editar Taller de <%= @name%></h1>
+
+
+	<form action="/<%= @name %>" method="post">
+	<!-- COMO EN HTML SOLO SE PUEDE USAR POST Y GET, para poder usar el metodo delete hay que enviar un campo hidden con nombre _method y value (delete,put...) -->
+	<input type="hidden" name="_method" value="put">
+	<fieldset>
+		<textarea name="description" rows="8" cols="50" value="" id="description">
+			<%= @description%></textarea>
+	</fieldset><br>
+	<input type="submit" name="edit" value="Editar Taller">
+		
+	</form>

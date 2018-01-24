@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- COMO POR DEFECTO SINATRA BUSCA EL CSS EN PUBLIC, NO HAY QUE PONER EN LA RUTA  href="public/style.css"-->
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<title>Talleres del año</title>
+</head>
+<body>
+<section class="rain"></section>
+	<%= yield %>
+
+</body>
+<script>
+// number of drops created.
+var nbDrop = 858; 
+
+// function to generate a random number range.
+function randRange( minNum, maxNum) {
+  return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+}
+
+// function to generate drops
+function createRain() {
+
+	for( i=1;i<nbDrop;i++) {
+	var dropLeft = randRange(0,1600);
+	var dropTop = randRange(-1000,1400);
+
+	$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
+	$('#drop'+i).css('left',dropLeft);
+	$('#drop'+i).css('top',dropTop);
+	}
+
+}
+// Make it rain
+createRain();
+</script>
+</html>

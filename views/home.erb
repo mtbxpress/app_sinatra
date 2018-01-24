@@ -1,0 +1,16 @@
+<h1>Talleres del año 2017 - 2018</h1>
+<!-- ETIQUETAS embebedruby -->
+<!--  Desde aqui tengo acceso a las variables -->
+<% if @valor == 2 %>
+	<p><%= @valor %></p> <!-- para la salida datos < %= -->
+	<p> El valor es 2 </p>
+<% end %>
+
+<% @files.each do |filename| %> <!-- @files.drop(1).each do |filename| => drop elimina los dos primeros elementos-->
+<!--	<a> <%= filename %> </a><br> -->
+
+<!-- Eliminar extension ficheros -->
+	<a href="/<%= File.basename(filename, ".*") %>"> <%= File.basename(filename, ".*") %> </a><br>
+<% end %>
+<br>
+<a href="/create" >Crear Nuevo Taller</a>
